@@ -1,0 +1,64 @@
+{
+  "name": "desktop-pet",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Electron + Live2D 桌面桌宠 V1.0",
+  "author": "desktop-pet",
+  "main": "main.js",
+  "scripts": {
+    "build": "esbuild renderer/pet.js --bundle --outfile=renderer/bundle.js --format=iife --minify --log-level=warning",
+    "start": "npm run build && electron .",
+    "dist": "npm run build && electron-builder --win dir",
+    "dist:installer": "npm run build && electron-builder --win nsis portable"
+  },
+  "dependencies": {
+    "@pixi/core": "^6.5.10",
+    "@pixi/unsafe-eval": "^6.5.10",
+    "live2dcubismcore": "^1.0.2",
+    "pixi-live2d-display": "^0.4.0",
+    "pixi.js": "^6.5.10"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^24.13.3",
+    "esbuild": "^0.24.0"
+  },
+  "build": {
+    "appId": "com.example.desktoppet",
+    "productName": "DesktopPet",
+    "asar": false,
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "main.js",
+      "plugins.js",
+      "preload.js",
+      "pet.config.json",
+      "renderer/**/*",
+      "assets/**/*",
+      "!.electron-cache/**",
+      "!scripts/**",
+      "!release/**"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "桌面桌宠"
+    }
+  }
+}

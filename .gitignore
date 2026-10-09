@@ -1,0 +1,29 @@
+# 依赖与构建产物
+node_modules/
+release/
+.electron-cache/
+.builder-cache/
+dist/
+renderer/bundle.js
+
+# 运行时数据
+.user-data/
+
+# 根目录冗余副本（renderer/vendor 已随仓库提交）
+/vendor/
+
+# 开发调试残留（截图/日志）
+/*.png
+/click*.txt
+/drag*.txt
+/portable*.txt
+/ai-test-result.json
+/smoke*
+
+# 环境与临时文件
+*.log
+.DS_Store
+Thumbs.db
+
+# 本地配置（含 API 密钥，禁止提交）
+pet.config.local.json

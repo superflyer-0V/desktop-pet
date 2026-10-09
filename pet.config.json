@@ -1,0 +1,13 @@
+{
+  "ai": {
+    "baseUrl": "https://api.deepseek.com/v1",
+    "apiKey": "",
+    "model": "deepseek-chat"
+  },
+  "pluginRepo": {
+    "owner": "superflyer-0V",
+    "repo": "desktop-pet",
+    "branch": "main",
+    "path": "plugins"
+  }
+}
